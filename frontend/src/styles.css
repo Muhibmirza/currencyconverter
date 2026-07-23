@@ -1,0 +1,98 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  color: #17213a;
+  background: #f4f7fb;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background:
+    radial-gradient(circle at 5% 0%, rgba(63, 94, 251, 0.12), transparent 32rem),
+    #f4f7fb;
+}
+
+.app-container {
+  max-width: 900px;
+}
+
+.eyebrow {
+  color: #4355d7;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.app-card {
+  border: 1px solid rgba(35, 49, 88, 0.08);
+  border-radius: 1.2rem;
+  box-shadow: 0 1rem 3rem rgba(26, 36, 71, 0.08);
+}
+
+.form-control,
+.form-select,
+.btn {
+  min-height: 48px;
+  border-radius: 0.7rem;
+}
+
+.btn-primary {
+  background: #4355d7;
+  border-color: #4355d7;
+}
+
+.swap-button {
+  width: 100%;
+  font-size: 1.35rem;
+}
+
+.result-panel {
+  border: 1px solid rgba(67, 85, 215, 0.2);
+  border-radius: 0.9rem;
+  padding: 1.25rem;
+  background: #f5f6ff;
+}
+
+.result-panel > p:first-child {
+  color: #4355d7;
+}
+
+.loader-wrap {
+  min-height: 260px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.history-list {
+  max-height: 360px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+@media (min-width: 768px) {
+  .swap-column {
+    padding-bottom: 0.2rem;
+  }
+
+  .swap-button {
+    width: 52px;
+  }
+}
+
+@media (max-width: 400px) {
+  .display-5 {
+    font-size: 2rem;
+  }
+
+  .history-list article > div {
+    flex-direction: column;
+  }
+
+  .history-list time {
+    text-align: left !important;
+  }
+}
+
