@@ -1,12 +1,14 @@
 import type { Conversion, Currency } from './types';
 
-const API_URL = import.meta.env.VITE_API_URL;
-
-if (!API_URL) {
-  throw new Error('VITE_API_URL is not configured');
-}
+const API_URL = import.meta.env.VITE_API_URL?.trim();
 
 async function getJson<T>(path: string): Promise<T> {
+  if (!API_URL) {
+    throw new Error(
+      'Backend URL is not configured. Add VITE_API_URL in the Vercel project settings and redeploy.',
+    );
+  }
+
   let response: Response;
   try {
     response = await fetch(`${API_URL.replace(/\/$/, '')}${path}`);
@@ -53,4 +55,3 @@ export function getConversion(
   const endpoint = historicalDate ? 'historical' : 'convert';
   return getJson<Conversion>(`/currency/${endpoint}?${params.toString()}`);
 }
-
