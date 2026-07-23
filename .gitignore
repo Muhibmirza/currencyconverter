@@ -6,3 +6,6 @@ build/
 *.tsbuildinfo
 frontend/.env
 backend/.env
+
+# Local Netlify folder
+.netlify

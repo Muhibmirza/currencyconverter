@@ -1,14 +1,12 @@
 import type { Conversion, Currency } from './types';
 
-const API_URL = import.meta.env.VITE_API_URL?.trim();
+const configuredApiUrl = import.meta.env.VITE_API_URL?.trim() ?? '';
+const API_URL =
+  import.meta.env.PROD && /^https?:\/\/localhost(?::\d+)?$/i.test(configuredApiUrl)
+    ? ''
+    : configuredApiUrl;
 
 async function getJson<T>(path: string): Promise<T> {
-  if (!API_URL) {
-    throw new Error(
-      'Backend URL is not configured. Add VITE_API_URL in the Vercel project settings and redeploy.',
-    );
-  }
-
   let response: Response;
   try {
     response = await fetch(`${API_URL.replace(/\/$/, '')}${path}`);

@@ -79,3 +79,14 @@ never exposes it to the browser. `.env` files are ignored by Git; only safe
 ```bash
 npm run build
 ```
+
+## Netlify deployment
+
+The repository includes `netlify.toml` and a Netlify Function adapter. A single
+Netlify site serves both the Vite frontend and the NestJS currency endpoints.
+Set these environment variables in Netlify before deploying:
+
+```env
+CURRENCY_API_KEY=your_real_key
+CURRENCY_API_BASE_URL=https://api.freecurrencyapi.com/v1
+```
